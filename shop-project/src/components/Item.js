@@ -22,6 +22,7 @@ export default function Item(props) {
   return (
     <div className="item">
       <div className="item-info">
+        <img alt="gloves" src={info.image} />
         <h2>{info.name}</h2>
         <p>{info.desc}</p>
       </div>
