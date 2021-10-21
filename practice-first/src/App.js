@@ -3,6 +3,7 @@ import "./App.css";
 import Card from "./components/Card";
 import Email from "./components/Email";
 import NameForm from "./components/NameForm";
+import ToDoApp from "./components/ToDoApp";
 import UserForm from "./components/UserForm";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <NameForm onNameChange={handleNameChange} name={name}/>
         <Email/>
         <UserForm/>
+        <ToDoApp />
       </header>
     </div>
   );
