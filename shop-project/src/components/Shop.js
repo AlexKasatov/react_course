@@ -23,7 +23,7 @@ export default function Shop() {
         name,
         desc,
         id: uuid(),
-        image: "https://source.unsplash.com/400x300/?street,wear",
+        image: "https://source.unsplash.com/400x300/?street",
       },
       ...items,
     ]); //Добавляем новый массив содержащий обьект с новыми state'тами
@@ -35,6 +35,7 @@ export default function Shop() {
 
   return (
     <>
+      {/* Заполнение Формы */}
       <AddItem
         onFormSubmit={handleFormSubmit}
         onSetName={setName}
@@ -48,6 +49,7 @@ export default function Shop() {
       >
         <p>Добавьте первый товар</p>
       </div>
+      {/* Лист товаров которые будут добавляться через форму */}
       <ItemList onDeleteItem={handleDeleteItem} items={items} />
     </>
   );
