@@ -25,7 +25,6 @@ function App() {
     <>
       <h2>Нужно залогиниться!</h2>
       <button onClick={handleAuthClick}>Войти</button>
-      <Multibrand />
     </>
   );
 }
