@@ -1,8 +1,9 @@
 import React from "react";
+import { FormStyled } from "./styles/Form.Styled";
 
 export default function AddItem(props) {
   return (
-    <form onSubmit={props.onFormSubmit}>
+    <FormStyled onSubmit={props.onFormSubmit}>
       <div>
         <label htmlFor="item-name"> Название Товара </label>
         <input
@@ -26,31 +27,35 @@ export default function AddItem(props) {
         />
       </div>
       <div className="form-footer">
-        <div className="validation"></div>
-        <p
-          style={
-            props.name && props.desc
-              ? { display: "none" }
-              : { display: "block" }
-          }
-        >
-          {" "}
-          <span role="img" aria-label="!!">
-            ‼️
-          </span>{" "}
-          Не все поля товаров заполнены{" "}
-          <span role="img" aria-label="!!">
-            ‼️
-          </span>{" "}
-        </p>
+        <div className="validation">
+          <p
+            style={
+              props.name && props.desc
+                ? { display: "none" }
+                : { display: "block" }
+            }
+          >
+            {" "}
+            <span role="img" aria-label="!!">
+              ‼️
+            </span>{" "}
+            Не все поля товаров заполнены{" "}
+            <span role="img" aria-label="!!">
+              ‼️
+            </span>{" "}
+          </p>
+        </div>
+      </div>
+      <div>
         <input
           type="submit"
+          id="submit-form"
           className="btn-basic"
           value="Добавить"
           // disabled={name ? !desc : true}
           disabled={props.name && props.desc ? false : true}
         />
       </div>
-    </form>
+    </FormStyled>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ItemStyled } from './styles/Item.styled';
 
 export default function Item(props) {
   const [total, setTotal] = useState(0);
@@ -20,7 +21,7 @@ export default function Item(props) {
   }
 
   return (
-    <div className="item">
+    <ItemStyled className="item">
       <div className="item-info">
         <img alt="gloves" src={info.image} />
         <h2>{info.name}</h2>
@@ -39,6 +40,6 @@ export default function Item(props) {
           +
         </button>
       </div>
-    </div>
+    </ItemStyled>
   );
 }

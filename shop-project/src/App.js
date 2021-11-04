@@ -7,6 +7,26 @@ import ItemsPractice from "./components/Practice/ItemsPractice";
 import SitNext from "./components/Practice/SitNext";
 import Scroll from "./components/Practice/Scroll";
 import Multibrand from "./components/Practice/Multibrand";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "./components/Global";
+import Header from "./components/Header";
+import { ButtonStyled } from "./components/styles/Button.styled";
+import { ContainerStyled } from "./components/styles/Container.styled";
+import { FlexStyled } from "./components/styles/Flex.styled";
+import Button101 from "./components/Practice/Button101";
+import Coinlist from "./components/Practice/CoinList";
+import Paypal from "./components/Practice/Paypal";
+import Counterstorage from "./components/Practice/CounterStorage";
+
+const theme = {
+  colors: {
+    header: "blue",
+    shop: "white",
+    footer: "black",
+  },
+  mobile: "768px",
+  size: "24px",
+};
 
 function App() {
   const [auth, setAuth] = useState(false);
@@ -15,16 +35,39 @@ function App() {
   }
   if (auth === true) {
     return (
-      <>
-        <Shop /> <button onClick={handleAuthClick}>Выйти</button>
-      </>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <>
+          <Header />
+          <ContainerStyled>
+            <FlexStyled>
+              <Shop />
+              <ButtonStyled onClick={handleAuthClick}>Log Out</ButtonStyled>
+            </FlexStyled>
+            {/* Footer */}
+          </ContainerStyled>
+        </>
+      </ThemeProvider>
     );
   }
 
   return (
     <>
-      <h2>Нужно залогиниться!</h2>
-      <button onClick={handleAuthClick}>Войти</button>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Header />
+        <ContainerStyled>
+          <FlexStyled>
+            <h2>Нужно залогиниться!</h2>
+            <ButtonStyled onClick={handleAuthClick}>Log In</ButtonStyled>
+            <Button101/>
+            <Coinlist/>
+            <Paypal/>
+            <Counterstorage/>
+            {/* Footer */}
+          </FlexStyled>
+        </ContainerStyled>
+      </ThemeProvider>
     </>
   );
 }
