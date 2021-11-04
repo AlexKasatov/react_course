@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import uuid from "react-uuid";
 import AddItem from "./AddItem";
 import ItemList from "./ItemList";
@@ -10,6 +10,19 @@ export default function Shop() {
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
 
+  // useEffect(() => {
+  //   localStorage.setItem("items", JSON.stringify(items))
+  // }, [items])
+
+  useEffect(() => {
+    if(items.length === 0) {
+      document.title = `Товары Отсутствуют`
+    }
+    if(items.length > 0 ) {
+      document.title = `${items.length} Товаров`
+      
+    }
+  })
  
   //удаляем товар из массива и обновляем state [items]
   const handleDeleteItem = (id) => {

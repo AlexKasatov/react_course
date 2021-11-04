@@ -1,11 +1,12 @@
 import React from "react";
 import Item from "./Item";
+import uuid from "react-uuid"
 
 export default function ItemsList(props) {
   return (
     <ul className="shop">
       {props.items.map((item) => (
-        <li key={item.id}>
+        <li key={uuid()}>
           <Item info={item} />
           <button
             className="btn-delete"

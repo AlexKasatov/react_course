@@ -60,10 +60,6 @@ function App() {
           <FlexStyled>
             <h2>Нужно залогиниться!</h2>
             <ButtonStyled onClick={handleAuthClick}>Log In</ButtonStyled>
-            <Button101/>
-            <Coinlist/>
-            <Paypal/>
-            <Counterstorage/>
             {/* Footer */}
           </FlexStyled>
         </ContainerStyled>
