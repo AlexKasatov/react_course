@@ -3,17 +3,14 @@ import ItemsList from "./ItemsList";
 import AddItem from "./AddItem";
 
 export default function Shop() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(() => {
+    const data = localStorage.getItem("items");
+    return JSON.parse(data) || [];
+  });
+
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
   const [valid, setValid] = useState("");
-
-  useEffect(() => {
-    const data = localStorage.getItem("items");
-    if (data) {
-      setItems(JSON.parse(data));
-    }
-  }, []);
 
   useEffect(() => {
     localStorage.setItem("items", JSON.stringify(items));
@@ -26,7 +23,8 @@ export default function Shop() {
     if (items.length > 0) {
       document.title = `${items.length} Товаров`;
     }
-  });
+    console.log("rendered");
+  }, [items]);
 
   function handleFormSubmit(event) {
     event.preventDefault();
@@ -74,7 +72,7 @@ export default function Shop() {
         onDescChange={handleDescChange}
         onFormSubmit={handleFormSubmit}
       />
-      <div>{items.length === 0 && <p>Добавьте первый товар</p>}</div>
+      <div>{items && items.length === 0 && <p>Добавьте первый товар</p>}</div>
       <ItemsList items={items} onDeleteClick={handleDeleteClick} />
     </>
   );

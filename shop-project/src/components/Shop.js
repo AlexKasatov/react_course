@@ -10,20 +10,19 @@ export default function Shop() {
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
 
-  // useEffect(() => {
-  //   localStorage.setItem("items", JSON.stringify(items))
-  // }, [items])
 
   useEffect(() => {
-    if(items.length === 0) {
-      document.title = `Товары Отсутствуют`
+    localStorage.setItem("items", JSON.stringify("items", items));
+  }, [items]);
+
+  useEffect(() => {
+    if (!items) {
+      document.title = `Товары Отсутствуют`;
+    } else {
+      document.title = `${items.length} Товаров`;
     }
-    if(items.length > 0 ) {
-      document.title = `${items.length} Товаров`
-      
-    }
-  })
- 
+  }, [items]);
+
   //удаляем товар из массива и обновляем state [items]
   const handleDeleteItem = (id) => {
     const newItem = items.filter((itemObj) => {
@@ -64,7 +63,9 @@ export default function Shop() {
 
           <div
             style={
-              items.length > 0 ? { display: "none" } : { display: "block" }
+              items && items.length > 0
+                ? { display: "none" }
+                : { display: "block" }
             }
           >
             <p>Добавьте первый товар</p>

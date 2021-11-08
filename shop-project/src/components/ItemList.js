@@ -5,7 +5,7 @@ import {ItemListStyled} from "./styles/ItemList.styled"
 export default function ItemList(props) {
   return (
     <ItemListStyled key={uuid()} className="shop">
-      {props.items.map((itemObj) => (
+      {props.items && props.items.map((itemObj) => (
         <>
           <li key={uuid()}>
             <Item info={itemObj} />

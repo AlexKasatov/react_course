@@ -53,7 +53,7 @@ export default function AddItem(props) {
           className="btn-basic"
           value="Добавить"
           // disabled={name ? !desc : true}
-          disabled={props.name && props.desc ? false : true}
+          // disabled={props.name && props.desc ? false : true}
         />
       </div>
     </FormStyled>
