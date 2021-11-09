@@ -9,6 +9,7 @@ import Ghibli from "./components/practice Fetch API/Ghibli";
 import Kanye from "./components/practice Fetch API/Kanye";
 import Shop from "./components/Shop";
 import GhibliButton from './components/async/await/GhibliButton';
+import Luckynumber from "./components/POST-requests/LuckyNumber";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
     <>
    <Shop/>
    <GhibliButton/>
+   <Luckynumber/>
    {/* <Cardsclick/>
    <Bitcoin/> */}
    {/* <Kanye/>

@@ -21,10 +21,10 @@ export default function Shop() {
         setLoader(true);
         console.log("finale");
       }
-    })();
+    })();  
   }, []);
 
-  const itemList = items.map((itemObj) => {
+  const itemList = items && items.map((itemObj) => {
     return (
       <ul key={uuid()}>
         <li key={uuid()}>
