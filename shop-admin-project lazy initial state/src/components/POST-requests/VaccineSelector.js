@@ -6,7 +6,7 @@ const Vaccineselector = () => {
   useEffect(() => {
     if (vaccine) {
       console.log(vaccine);
-      
+
       const putRequest = {
         method: "PUT",
         body: JSON.stringify({ name: vaccine }),

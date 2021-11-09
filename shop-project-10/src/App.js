@@ -1,5 +1,7 @@
+import Shop from "./Shop";
+
 function App() {
-  return <div className="App"></div>;
+  return <Shop/>;
 }
 
 export default App;
