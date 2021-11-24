@@ -1,26 +1,28 @@
 import { useState } from "react";
 import Shop from "./components/Shop";
+import Products from "./components/Products";
 
 function App() {
-  const [validation, setValidation] = useState(false)
+  const [admin, setAdmin] = useState(false);
 
-  const handleValidationClick = () => setValidation(prev => !prev)
+  const handleAdminLogIn = () => setAdmin((prev) => !prev);
 
-  if(validation) {
+  if (admin) {
     return (
       <>
-      <h2>Вы Зашли Как Админ</h2>
-      <Shop/>
-      <button onClick={handleValidationClick}>Log Out</button>
+        <Shop />
+        <button onClick={handleAdminLogIn}>Log Out</button>
       </>
-    )
+    );
+  } else {
+    return (
+      <>
+        <h2>Войти</h2>
+        <button onClick={handleAdminLogIn}>Log In</button>
+        <Products/>
+      </>
+    );
   }
-  else {(
-    <>
-    <h2>Войдите в Аккаунт</h2>
-    <button onClick={handleValidationClick}>Sign In</button>
-    </>
-  );}
 }
 
 export default App;
