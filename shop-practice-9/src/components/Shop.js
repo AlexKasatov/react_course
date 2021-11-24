@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Items from "./Items";
 import uuid from "react-uuid";
+import TitleComp from "./TitleComp";
 
 export default function Shop() {
   const [items, setItems] = useState([]);
@@ -21,19 +22,26 @@ export default function Shop() {
         setLoader(true);
         console.log("finale");
       }
-    })();  
+    })();
   }, []);
 
-  const itemList = items && items.map((itemObj) => {
-    return (
-      <ul key={uuid()}>
-        <li key={uuid()}>
-          <Items info={itemObj} />
-          <button>Удалить Товар</button>
-        </li>
-      </ul>
-    );
-  });
+  const itemList =
+    items &&
+    items.map((itemObj) => {
+      return (
+        <ul key={uuid()}>
+          <li key={uuid()}>
+            <Items info={itemObj} />
+            <button>Удалить Товар</button>
+          </li>
+        </ul>
+      );
+    });
 
-  return <>{itemList}</>;
+  return (
+    <>
+      {itemList}
+      <TitleComp/>
+    </>
+  );
 }

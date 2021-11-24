@@ -37,7 +37,7 @@ export default function App() {
 
   function handleMarkerChange(e) {
     marker.setLngLat(stores[e.target.value]);
-  }
+  } 
 
   return (
     <>
