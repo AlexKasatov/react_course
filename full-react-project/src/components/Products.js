@@ -12,18 +12,18 @@ const Products = () => {
   }, []);
 
   function handleDeleteProduct(id) {
-      setItems(items.filter(item => item.id !== id))
+    setItems(items.filter((item) => item.id !== id));
   }
 
   return (
     <>
-      {items &&
-        
-          <ItemList
-            onDeleteProduct={handleDeleteProduct}
-            items={items}
-          ></ItemList>
-        }
+      {loader && <h2>Подгружаем Товары...</h2>}
+      {items && (
+        <ItemList
+          onDeleteProduct={handleDeleteProduct}
+          items={items}
+        ></ItemList>
+      )}
     </>
   );
 };
